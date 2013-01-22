@@ -1,0 +1,65 @@
+webOS 배경:
+Cordova = Phone Gap
+1. PhoneGap 을 사용하는 이유는 Cross Platform
+2. mojo was the original framework that was used on palm/hp phones (not supported on openwebos).
+3. Enyo1 was used on the touchpad and to some extent on the veer and Pre3 (supported in openwebos)
+4. Enyo2 is future and works on ALL platforms.
+
+
+reference:
+enyo+cordova 개발 방향 가이드
+http://blog.openwebosproject.org/post/39278618299/javascript-apps-for-open-webos-with-enyo-and-cordova
+
+github repo incubator cordova webos:
+https://github.com/apache/incubator-cordova-webos (HP webOS)
+
+github repo cordova-webos
+https://github.com/apache/cordova-webos (cordova development)
+
+phonegap webos 개발 설명:
+http://docs.phonegap.com/en/1.7.0/guide_getting-started_webos_index.md.html
+
+Debugging in PhoneGap: 
+https://github.com/phonegap/phonegap/wiki/Debugging-in-PhoneGap
+
+phonegap Plugin Development Guide: 
+http://docs.phonegap.com/en/2.0.0/guide_plugin-development_index.md.html
+
+Event handling:
+https://github.com/enyojs/enyo/wiki/Event-Handling
+
+
+Cordova 개발:
+1. bootplate 
+2. phonegap (cordovoa) v. 2.3.0 현재 2.4.0까지 release (비공식)
+3. HP webOS SDK 로 ipk 파일 생성
+4. HP webOS Emulator로 app 실행, debugging
+
+개발 방향:
+bootplate에서 개발 이후 deploy.bat 실행하여 minify. 이후 ipk 빌드하여 emulator launching
+
+bootplate 개발:
+
+1. debug.html
+	deviceready event 추가가능
+	
+2. source폴더 안에 package.js 파일 및 기타 js/html/css 관리
+
+3. bootplate deploy 시키기: deploy.bat
+
+package: palm-package.bat framework/
+deply: 	 palm-install.bat org.apache.cordova.webos_0.0.1_all.ipk
+run:	 palm-launch.bat org.apache.cordova.webos (에뮬레이터 실행 되어있어야 함)
+
+Debugging:
+
+Ares Debug tool:
+ares.palm.com/AresDebug/#
+
+Ares Log tool:
+ares.palm.com/AresLog/
+
+터미널 접근법:
+ssh로 qemux86 접근 방법 (https://developer.palm.com/content/content/api/dev-guide/tools/emulator.html)
+
+팁: To enable verbose logging, add the file framework_config.json to your framework/www/ folder, containing the following json content: { "logLevel": 99 }
